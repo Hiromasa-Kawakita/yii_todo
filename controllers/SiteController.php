@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Todos;
 
 class SiteController extends Controller
 {
@@ -64,9 +65,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionTodo()
+    // TODO
+    public function actionTodos()
     {
-        return $this->render("todo");
+        $query = Todos::find();
+        return $this->render("todo", ['todos' => $query]);
     }
 
     /**
