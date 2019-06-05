@@ -20,7 +20,7 @@ class Todos extends \yii\db\ActiveRecord
     {
         return 'todos';
     }
-
+    
     /**
      * {@inheritdoc}
      */
