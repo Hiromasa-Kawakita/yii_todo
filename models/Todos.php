@@ -29,7 +29,7 @@ class Todos extends \yii\db\ActiveRecord
         return [
             [['task'], 'required'],
             [['done'], 'integer'],
-            [['task'], 'string', 'max' => 256],
+            [['task'], 'string', 'max' => 255],
         ];
     }
 
