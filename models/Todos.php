@@ -9,7 +9,11 @@ use Yii;
  *
  * @property int $id
  * @property string $task
+ * @property string $description
  * @property int $done
+ * @property int $priority
+ * @property string $datetime
+ * @property string $category
  */
 class Todos extends \yii\db\ActiveRecord
 {
@@ -20,7 +24,7 @@ class Todos extends \yii\db\ActiveRecord
     {
         return 'todos';
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -28,8 +32,9 @@ class Todos extends \yii\db\ActiveRecord
     {
         return [
             [['task'], 'required'],
-            [['done'], 'integer'],
-            [['task'], 'string', 'max' => 255],
+            [['done', 'priority'], 'integer'],
+            [['datetime'], 'safe'],
+            [['task', 'description', 'category'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,7 +46,11 @@ class Todos extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'task' => 'Task',
+            'description' => 'Description',
             'done' => 'Done',
+            'priority' => 'Priority',
+            'datetime' => 'Datetime',
+            'category' => 'Category',
         ];
     }
 }
