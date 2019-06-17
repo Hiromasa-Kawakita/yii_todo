@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Update Task : '. $model->task;
+$this->title = '編集';
 $this->params['breadcrumbs'][] = ['label' => 'Todo list', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
