@@ -11,7 +11,7 @@ use Yii;
  * @property string $task
  * @property string $description
  * @property int $done
- * @property int $priority
+ * @property string $priority
  * @property string $datetime
  * @property string $category
  */
@@ -31,10 +31,11 @@ class Todos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['task'], 'required'],
-            [['done', 'priority'], 'integer'],
+            [['task', 'datetime', 'category'], 'required'],
+            [['done'], 'integer'],
             [['datetime'], 'safe'],
             [['task', 'description', 'category'], 'string', 'max' => 255],
+            [['priority'], 'string', 'max' => 10],
         ];
     }
 
