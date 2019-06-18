@@ -33,6 +33,17 @@ use yii\helpers\ArrayHelper;
     ?>
 </P>
 
+<P>
+    <?= $form->field($model, 'priority')->dropdownList([
+            1 => '!', 
+            2 => '!!',
+            3 => '!!!'
+        ],
+        ['prompt'=>'優先度を選択してください']
+    )->label("優先度");
+    ?>
+</P>
+
 <div class="form-group">
     <?= Html::submitButton('保存', ['class' => 'btn btn-success']) ?>
 </div>

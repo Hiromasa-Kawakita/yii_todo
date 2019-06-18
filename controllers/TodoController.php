@@ -109,6 +109,12 @@ class TodoController extends Controller
         return $this->render("index", ['todos' => $todos, 'count' => $count]);
     }
 
+    public function actionPrioritysort () 
+    {
+        $todos = Todos::find()->orderBy("priority DESC")->all();
+        $count = Todos::find()->orderBy("done")->count();
+        return $this->render("index", ['todos' => $todos, 'count' => $count]);
+    }
 
     /**
      * 

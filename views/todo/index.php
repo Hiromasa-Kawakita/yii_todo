@@ -35,6 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a('早い', ['datetimesort'], ['class' => 'btn btn-default btn-sm']) ?>
 </li>
 <br>
+<li>優先度順：
+    <?= Html::a('高い', ['prioritysort'], ['class' => 'btn btn-default btn-sm']) ?>
+</li>
+<br>
 
 <p><?= Html::a('タスクを作成', ['create'], ['class' => 'btn btn-success']) ?></p>
 --------------------------------------------------------------------------------------------------------
@@ -49,10 +53,27 @@ foreach ($todos as $todo): ?>
         <?php endif; ?>
         <?= Html::endForm() ?>
 
+        <?php 
+       switch ($todo->priority) {
+        case 1:
+            $priority = "!";
+            break;
+        case 2:
+            $priority = "!!";
+            break;
+        case 3:
+            $priority = "!!!";
+            break;
+        default:
+            break;
+    } 
+        ?>
+
     <li> <?= Html::encode("タスク：{$todo->task}") ?> </li>
     <li> <?= Html::encode("メモ：{$todo->description}") ?> </li>
     <li> <?= Html::encode("カテゴリー：{$todo->category}") ?> </li>
     <li> <?= Html::encode("期限：{$todo->datetime}") ?> </li>
+    <li> <?= Html::encode("優先度：{$priority}") ?> </li>
 
         <!-- 
         <?= Html::beginForm(['todo/delete', 'id' => $todo->id], 'post') ?>
